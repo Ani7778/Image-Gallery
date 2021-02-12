@@ -38,6 +38,7 @@ thumb6.addEventListener("click", ()=> {
 	mainImg.src = thumb6Src;
 });
 
+
 const closeBtn = document.querySelector("#closebtn");
 const updateBtn = document.querySelector("#updateBtn");
 const slideContainer = document.querySelector(".slide_container");
@@ -49,7 +50,6 @@ closeBtn.addEventListener("click", ()=> {
 updateBtn.addEventListener("click", ()=> {
 	slideContainer.style.display = "block";
 });
-
 
 const slide = document.querySelector(".slides");
 const images = document.querySelectorAll(".slides img");
@@ -89,8 +89,6 @@ slide.addEventListener("transitionend", ()=> {
     	slide.style.transform = "translateX(" + (-size * counter) + "px)";
     }
 });
-
-
 
 
 
