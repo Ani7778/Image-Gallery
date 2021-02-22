@@ -1,53 +1,45 @@
-const mainImage = document.querySelector("#mainImg");
-const thumbContainer = document.querySelector("#thumb_img_list");
-const slideContainer = document.querySelector(".slide_container");
+const images = document.querySelectorAll(".images img");
 const slideshowContainer = document.querySelector(".slideshow_container");
-const closeButtonContainer = document.querySelector(".close_btn_container");
-
-thumbContainer.addEventListener("click", (event)=> {
-	let targetElement = event.target;
-
-	if (targetElement.tagName === "IMG") {
-		mainImage.src = targetElement.getAttribute("src");
-	}
-    
-    slideshowContainer.style.display = "block";
-    slideContainer.style.display = "block";
-    closeButtonContainer.style.display = "block";
-});
-
-
+const mainImage = document.querySelector("#mainImg");
+const imageTxt = document.querySelector("#imgTxt");
 const closeBtn = document.querySelector("#closebtn");
-
-closeBtn.addEventListener("click", ()=> {
-	slideContainer.style.display = "none";
-	slideshowContainer.style.display = "none";
-});
-
-
 const prevBtn = document.querySelector("#prevBtn");
 const nextBtn = document.querySelector("#nextBtn");
-const images = document.querySelectorAll(".slides img");
 
-let i = images.length;
+images.forEach((image, index) => {
+    image.addEventListener("click", ()=> {
+    	mainImage.src = image.src;
+    	imageTxt.innerHTML = image.alt;
+        slideshowContainer.classList.add("appear");
+    
+        let imageIndex = index;
+	    let next = imageIndex++;
+	    let prev = imageIndex--;
 
-nextBtn.addEventListener("click", ()=> {
-	if (i < images.length) {
-		i++;
-	} else {
-		i = 1;
-	}
+        prevBtn.addEventListener("click", ()=> {
+	    	if (prev < 0) {
+	    		prev = images.length - 1;
+	    	}
 
-	mainImage.src = images[i - 1].src;
-});
+	    	mainImage.src = images[prev].src;
+	    	imageTxt.innerHTML = images[prev].alt;
+	    	prev--;
+	    	next = prev + 2;
+	    });
+        
+        nextBtn.addEventListener("click", ()=> {
+            if (next >= images.length) {
+            	next = 0;
+            }
 
+	    	mainImage.src = images[next].src;
+	    	imageTxt.innerHTML = images[next].alt;
+	    	next++;
+	    	prev = next - 2;
+	    });
 
-prevBtn.addEventListener("click", ()=> {
-	if (i < images.length + 1 && i > 1) {
-		i--;
-	} else {
-		i = images.length;
-	}
-
-	mainImage.src = images[i - 1].src;
+	    closeBtn.addEventListener("click", ()=> {
+	        slideshowContainer.classList.remove("appear");
+	    });
+	});
 });
