@@ -1,5 +1,15 @@
+$max-width: 100%;
+$prev-next-btn-size: 50px;
+
 * {
     box-sizing: border-box;
+}
+
+h1 {
+	text-align: center;
+	color: grey;
+	font-size:50px;
+	font-family: 'Indie Flower', cursive;
 }
 
 .thumb_container {
@@ -8,13 +18,11 @@
     
     img {
     	height: 140px;
-    	max-width: 100%;
-    	padding: 10px;	
-
-    	opacity: 0.9;
+    	max-width: $max-width;
+    	padding: 10px;
+    	cursor: pointer;	
 
 		&:hover {
-			opacity: 1;
 			transform: scale(0.95);
 		}
     }
@@ -32,7 +40,7 @@
 	background-color: rgba(0, 0, 0, 0.7);
 	color: #fff;
 	padding: 30px;
-	width: 100%;
+	width: $max-width;
 	height: 100%;
 	top: 0;
 	left: 0;
@@ -55,26 +63,24 @@
 
 #closebtn {
     position: absolute;
-	font-size: 30px;
+	font-size: 40px;
 	right: 4%;
 	z-index: 10;
 	cursor: pointer;
 }
 
 .slide_container {
-	max-width: 100%;
-
+	max-width: $max-width;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 #prevBtn {
 	position: absolute;
 	top: 50%;
-	font-size: 50px;
+	font-size: $prev-next-btn-size;
 	left: 5%;
 	z-index: 10;
 	color: white;
@@ -84,7 +90,7 @@
 #nextBtn {
 	position: absolute;
 	top: 50%;
-	font-size: 50px;
+	font-size: $prev-next-btn-size;
 	right: 5%;
 	z-index: 10;
 	color: white;
@@ -93,29 +99,32 @@
 
 .slides {
 	display: flex;
-	max-width: 100%;
+	max-width: $max-width;
 	height: 600px;
 
 	img {
-		cursor: pointer;
-		max-width: 100%;
+		max-width: $max-width;
 	}
+}
+
+@media screen and (max-width: 680px) {
+    .slides {
+    	padding-top: 120px;
+    	max-width: 90%;
+    	max-height: 450px;
+    }
 }
 
 @media screen and (max-width: 760px) {
     .slideshow_container {
     	padding: 0;
-    	width: 100%;
+    	width: $max-width;
     }
 }
 
-body {
-	justify-content: center;
-	align-items: center;
-}
 
 #mainImg {
-    max-width: 100%;
+    max-width: $max-width;
     height: 100%;
     margin: auto;
 }

@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+h1 {
+  text-align: center;
+  color: grey;
+  font-size: 50px;
+  font-family: "Indie Flower", cursive;
+}
+
 .thumb_container {
   margin: 50px auto;
   width: 80%;
@@ -10,10 +17,9 @@
   height: 140px;
   max-width: 100%;
   padding: 10px;
-  opacity: 0.9;
+  cursor: pointer;
 }
 .thumb_container img:hover {
-  opacity: 1;
   transform: scale(0.95);
 }
 
@@ -52,7 +58,7 @@
 
 #closebtn {
   position: absolute;
-  font-size: 30px;
+  font-size: 40px;
   right: 4%;
   z-index: 10;
   cursor: pointer;
@@ -92,21 +98,22 @@
   height: 600px;
 }
 .slides img {
-  cursor: pointer;
   max-width: 100%;
 }
 
+@media screen and (max-width: 680px) {
+  .slides {
+    padding-top: 120px;
+    max-width: 90%;
+    max-height: 450px;
+  }
+}
 @media screen and (max-width: 760px) {
   .slideshow_container {
     padding: 0;
     width: 100%;
   }
 }
-body {
-  justify-content: center;
-  align-items: center;
-}
-
 #mainImg {
   max-width: 100%;
   height: 100%;
