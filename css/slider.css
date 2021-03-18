@@ -16,8 +16,8 @@ h1 {
 .thumb_container img {
   height: 140px;
   max-width: 100%;
-  padding: 10px;
   cursor: pointer;
+  padding: 10px;
 }
 .thumb_container img:hover {
   transform: scale(0.95);

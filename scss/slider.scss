@@ -19,8 +19,8 @@ h1 {
     img {
     	height: 140px;
     	max-width: $max-width;
-    	padding: 10px;
-    	cursor: pointer;	
+    	cursor: pointer;
+        padding: 10px;        
 
 		&:hover {
 			transform: scale(0.95);
